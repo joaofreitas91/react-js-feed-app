@@ -1,20 +1,23 @@
 import React from 'react';
+
 import { ThumbsUp, Trash } from 'phosphor-react';
+import { Avatar } from '../Avatar';
+
 import styles from './styles.module.css';
 
 export const Comment : React.FC = () => (
   <div className={styles.comment}>
-    <img
-      className={styles.avatar}
+    <Avatar
       src="https://avatars.githubusercontent.com/u/80129250?v=4"
       alt="avatar profile"
+      hasBorder={false}
     />
     <div className={styles.commentBox}>
 
       <div className={styles.commentContent}>
         <header>
           <div className={styles.authorAndTime}>
-            <strong>Zé pequeno</strong>
+            <strong>Gui</strong>
             <time
               title="14 de Maio de 2010"
               dateTime="2010-05-14 09:14:33"

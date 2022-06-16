@@ -1,13 +1,15 @@
 import React from 'react';
+
+import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
+
 import styles from './styles.module.css';
 
 export const Post: React.FC = () => (
   <article className={styles.post}>
     <header className={styles.header}>
       <div className={styles.author}>
-        <img
-          className={styles.avatar}
+        <Avatar
           src="https://avatars.githubusercontent.com/u/80129250?v=4"
           alt="avatar profile"
         />
