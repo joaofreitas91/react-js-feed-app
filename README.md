@@ -45,14 +45,15 @@ $ yarn
 #Execute a aplicação em modo de desenvolvimento
 $ yarn run dev
 
-#Se você não estiver com nenhum projeto rodando no momento, o servidor irá iniciar na porta 3000 - acesse http://localhost:3000
+#Se você não estiver com nenhum projeto rodando no momento, 
+#o servidor irá iniciar na porta 3000 - acesse http://localhost:3000
 
 ```
 <h1 id='author'>Autor</h1>
 
 ## Olá, 👋
 
-Feito com 💜 by João Paulo 👋 [Visite meu linkedin](https://www.linkedin.com/in/joaopfreitas91/)
+Feito com 💜 por João Paulo 👋 [Visite meu linkedin](https://www.linkedin.com/in/joaopfreitas91/)
 
 
 
