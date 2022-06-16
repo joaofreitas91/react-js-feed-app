@@ -14,6 +14,15 @@ export const App : React.FC = () => (
       <Sidebar />
       <main>
         <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
       </main>
     </div>
 
