@@ -10,10 +10,10 @@
 
 <h1 id='sobre'>Sobre</h1>
 
-![gif](./rocketseat-feed/src/assets/git/presentation.gif)
-
 Aplicativo criado na introdução do curso de React-JS da Rocketseat.
 Template gerado com o vite, código em Typescript e estilização com CSS.
+
+![gif](./src/assets/git/presentation.gif)
 
 <h1 id='tech'>Tecnologias</h1>
 
