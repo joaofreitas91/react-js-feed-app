@@ -63,6 +63,10 @@ export const Post = ({
     setDraftComment(value);
   }
 
+  function deleteComment(thisComment: string) {
+    setComments((previousState) => previousState.filter((e) => e !== thisComment));
+  }
+
   return (
     <article className={styles.post}>
       <header className={styles.header}>
@@ -108,7 +112,13 @@ export const Post = ({
       </form>
 
       <div className={styles.commentList}>
-        {comments.map((comment) => <Comment comment={comment} />)}
+        {comments.map((comment) => (
+          <Comment
+            key={comment}
+            comment={comment}
+            onDeleteComment={deleteComment}
+          />
+        ))}
       </div>
     </article>
   );

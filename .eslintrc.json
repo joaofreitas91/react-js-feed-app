@@ -38,6 +38,7 @@
         "react/jsx-props-no-spreading": "off",
         "react/jsx-pascal-case": "off",
         "react/require-default-props": "off",
+        "react/jsx-no-bind": "off",
         "import/no-unresolved": "off",
         "import/extensions": "off",
         "import/prefer-default-export": "off",
