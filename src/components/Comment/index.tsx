@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { ThumbsUp, Trash } from 'phosphor-react';
 import { Avatar } from '../Avatar';
@@ -11,9 +11,16 @@ interface TypeProps {
 }
 
 export const Comment = ({ comment, onDeleteComment } :TypeProps) => {
+  const [like, setLike] = useState(0);
+
   function handleDeleteComment() {
     onDeleteComment(comment);
   }
+
+  function handleLike() {
+    setLike((previousLikes) => previousLikes + 1);
+  }
+
   return (
     <div className={styles.comment}>
       <Avatar
@@ -42,11 +49,11 @@ export const Comment = ({ comment, onDeleteComment } :TypeProps) => {
         </div>
 
         <footer>
-          <button type="button">
+          <button type="button" onClick={handleLike}>
             <ThumbsUp />
             Aplaudir
             <span>
-              20
+              {like}
             </span>
           </button>
         </footer>
