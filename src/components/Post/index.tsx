@@ -1,4 +1,6 @@
-import React, { FormEvent, useState } from 'react';
+import {
+  ChangeEvent, FormEvent, InvalidEvent, useState,
+} from 'react';
 
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/esm/locale/pt-BR';
@@ -61,14 +63,14 @@ export const Post = ({
     setDraftComment('');
   }
 
-  function handleTypeComment(event: React.ChangeEvent<HTMLTextAreaElement>) {
+  function handleTypeComment(event: ChangeEvent<HTMLTextAreaElement>) {
     event?.target.setCustomValidity('');
 
     const { value } = event.target;
     setDraftComment(value);
   }
 
-  function handleCustomValidity(event: React.ChangeEvent<HTMLTextAreaElement>) {
+  function handleCustomValidity(event: InvalidEvent<HTMLTextAreaElement>) {
     event?.target.setCustomValidity('O Campo é obrigatório!');
   }
 
