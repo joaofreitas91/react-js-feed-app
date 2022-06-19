@@ -1,6 +1,7 @@
+import React, { FormEvent, useState } from 'react';
+
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/esm/locale/pt-BR';
-import { FormEvent, TextareaHTMLAttributes, useState } from 'react';
 
 import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
@@ -30,6 +31,8 @@ export const Post = ({
   const [comments, setComments] = useState<string[]>([]);
   const [draftComment, setDraftComment] = useState('');
 
+  const isNewCommentEmpty = draftComment.length === 0;
+
   function publishedDateFormatter(date: Date | undefined) {
     if (!date) {
       return;
@@ -58,9 +61,15 @@ export const Post = ({
     setDraftComment('');
   }
 
-  function handleDrawComment(event: { target: HTMLTextAreaElement }) {
+  function handleTypeComment(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    event?.target.setCustomValidity('');
+
     const { value } = event.target;
     setDraftComment(value);
+  }
+
+  function handleCustomValidity(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    event?.target.setCustomValidity('O Campo é obrigatório!');
   }
 
   function deleteComment(thisComment: string) {
@@ -103,11 +112,18 @@ export const Post = ({
         <textarea
           placeholder="Deixe seu comentário"
           value={draftComment}
-          onChange={handleDrawComment}
+          onChange={handleTypeComment}
+          required
+          onInvalid={handleCustomValidity}
         />
 
         <footer>
-          <button type="submit">Publicar</button>
+          <button
+            type="submit"
+            disabled={isNewCommentEmpty}
+          >
+            Publicar
+          </button>
         </footer>
       </form>
 
