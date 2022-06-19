@@ -1,5 +1,6 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/esm/locale/pt-BR';
+import { FormEvent, TextareaHTMLAttributes, useState } from 'react';
 
 import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
@@ -26,7 +27,8 @@ interface TypePosts {
 export const Post = ({
   id, author, post, publishAt,
 }: TypePosts) => {
-  // console.log(publishAt?.getFullYear());
+  const [comments, setComments] = useState<string[]>([]);
+  const [draftComment, setDraftComment] = useState('');
 
   function publishedDateFormatter(date: Date | undefined) {
     if (!date) {
@@ -47,6 +49,18 @@ export const Post = ({
       locale: ptBR,
       addSuffix: true,
     });
+  }
+
+  function handleSubmitComment(event: FormEvent) {
+    event?.preventDefault();
+
+    setComments([...comments, draftComment]);
+    setDraftComment('');
+  }
+
+  function handleDrawComment(event: { target: HTMLTextAreaElement }) {
+    const { value } = event.target;
+    setDraftComment(value);
   }
 
   return (
@@ -72,18 +86,20 @@ export const Post = ({
         </time>
       </header>
       <div className={styles.content}>
-        {post?.map((line, i) => (
-          <div key={i}>
+        {post?.map((line) => (
+          <div key={line.content.toString()}>
             {line.type === 'paragraph' && <p> {line.content} </p>}
             {line.type === 'link' && <p><a> {line.content} </a></p>}
-            {line.type === 'hashTags' && Array.isArray(line.content) && line.content.map((e, i) => <a key={i}>{e}</a>)}
+            {line.type === 'hashTags' && Array.isArray(line.content) && line.content.map((hashtag) => <a key={hashtag}>{hashtag}</a>)}
           </div>
         ))}
       </div>
-      <form className={styles.commentForm}>
+      <form className={styles.commentForm} onSubmit={handleSubmitComment}>
         <strong>Deixe seu feedback</strong>
         <textarea
           placeholder="Deixe seu comentário"
+          value={draftComment}
+          onChange={handleDrawComment}
         />
 
         <footer>
@@ -92,8 +108,7 @@ export const Post = ({
       </form>
 
       <div className={styles.commentList}>
-        <Comment />
-
+        {comments.map((comment) => <Comment comment={comment} />)}
       </div>
     </article>
   );

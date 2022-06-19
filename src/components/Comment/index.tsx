@@ -5,7 +5,11 @@ import { Avatar } from '../Avatar';
 
 import styles from './styles.module.css';
 
-export const Comment : React.FC = () => (
+interface TypeProps {
+  comment: string
+}
+
+export const Comment = ({ comment } :TypeProps) => (
   <div className={styles.comment}>
     <Avatar
       src="https://avatars.githubusercontent.com/u/80129250?v=4"
@@ -29,7 +33,7 @@ export const Comment : React.FC = () => (
             <Trash size={24} />
           </button>
         </header>
-        <p>Muito bom DEV, parabéns!</p>
+        <p>{comment}</p>
       </div>
 
       <footer>
