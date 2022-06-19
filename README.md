@@ -57,12 +57,3 @@ $ yarn run dev
 ## Olá, 👋
 
 Feito com 💜 por João Paulo 👋 [Visite meu linkedin](https://www.linkedin.com/in/joaopfreitas91/)
-
-
-
-</br>
-</br>
-</br>
-</br>
-
-# 🚧 Projeto em construção... 🚀
