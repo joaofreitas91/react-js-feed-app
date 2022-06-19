@@ -10,7 +10,7 @@
 
 <h1 id='sobre'>Sobre</h1>
 
-![gif](../rocketseat-feed/src/assets/git/presentation.gif)
+![gif](./rocketseat-feed/src/assets/git/presentation.gif)
 
 Aplicativo criado na introdução do curso de React-JS da Rocketseat.
 Template gerado com o vite, código em Typescript e estilização com CSS.
@@ -21,6 +21,9 @@ Template gerado com o vite, código em Typescript e estilização com CSS.
 - Typescript
 - CSS
 - Eslint
+
+- Lib - date-fns
+- Lib - phosphor-react
 
 
 
